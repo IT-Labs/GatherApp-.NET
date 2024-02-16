@@ -22,9 +22,7 @@ namespace GatherApp.Contracts.Validators
                 .Matches(expression: Regexes.NamesExp).WithMessage(Errors.LettersOnly);
             RuleFor(x => x.Email)
                 .NotEmpty().WithMessage(Errors.NotEmpty)
-                .MaximumLength(80).WithMessage(Errors.EmailMaxLength)
-                .Matches(expression: Regexes.EmailExp).WithMessage(Errors.InvalidEmail);
-
+                .MaximumLength(80).WithMessage(Errors.EmailMaxLength);
         }
     }
 }

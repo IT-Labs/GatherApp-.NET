@@ -21,8 +21,7 @@ namespace GatherApp.Contracts.Validators
                 .Matches(expression: Regexes.NamesExp).WithMessage(Errors.LettersOnly);
             RuleFor(x => x.Email)
                 .NotEmpty().WithMessage(Errors.NotEmpty)
-                .MaximumLength(80).WithMessage(Errors.EmailMaxLength)
-                .Matches(expression: Regexes.EmailExp).WithMessage(Errors.InvalidEmail);
+                .MaximumLength(80).WithMessage(Errors.EmailMaxLength);
 
             // Password regex check if contains lowercase, uppercase, numbers, special chars + between 8 and 32 characters
             RuleFor(x => x.Password)

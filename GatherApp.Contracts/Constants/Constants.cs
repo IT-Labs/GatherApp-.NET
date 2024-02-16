@@ -154,7 +154,6 @@ namespace GatherApp.Contracts.Constants
     public static class Regexes
     {
         public const string NamesExp = "^[a-zA-Z]+( [a-zA-Z]+)*$";
-        public const string EmailExp = "^[^@]+@it-labs\\.com$";
         public const string PasswordExp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\\W|_]).{8,32}$";
     }
 }
