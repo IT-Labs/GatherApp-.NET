@@ -12,6 +12,8 @@
 
 ---
 
+**IMPORTANT: Credit where credit is due. This app is the end product of the amazing work put in by the participants in our latest Internship program – showing off their amazing technical skills, but also ability to truly cooperate and collaborate!**
+
 ## Introduction
 
 This application is the back-end part of GatherApp project that enables employees to create a variety of events, differing in theme, location, type, and guest list both on behalf of the company and the employee as an individual. The front-end part of this project can be found on this link **[here](https://github.com/IT-Labs/GatherApp-UI)**.
