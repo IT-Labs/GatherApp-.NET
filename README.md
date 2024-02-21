@@ -6,9 +6,13 @@
 
 2.  [Technologies](#technologies)
 
-3.  [Setup](#setup)
+3.  [Architecture and Pattern](#architecture-and-pattern)
 
-4.  [How to Contribute to the Project](#how-to-contribute-to-the-project)
+4.  [Docker Setup](#docker-setup)
+
+5.  [Setup Locally](#setup-locally)
+
+6.  [How to Contribute to the Project](#how-to-contribute-to-the-project)
 
 ---
 
@@ -18,9 +22,51 @@ This application is the back-end part of GatherApp project that enables employee
 
 ## Technologies
 
-This application uses .NET 8 Web API project that uses Entity Framework 8.0.1 to communicate with PostgreSQL DB. The database will be automatically created by setting the **ConnectionStrings** in **appsettings.Development.json** file. Then, execute the EF migrations with **update-database** in Package Manager Console. The repository already contains Azure Pipeline script that can be used for setting up CI/CD on Azure DevOps. The application uses custom JWT tokens for authentication/authorization. The SQL Server RDBMS should be used, and the application will use self-issued JWT tokens for authentication/authorization. Swagger is used for application documentation.
+This application uses .NET 8 Web API project that uses Entity Framework 8.0.2 to communicate with PostgreSQL DB. The database will be automatically created by setting the **ConnectionStrings** in **appsettings.Development.json** file. Then, execute the EF migrations with **update-database** in Package Manager Console, or use [docker setup](#docker-setup). The repository already contains Azure Pipeline script that can be used for setting up CI/CD on Azure DevOps. The application uses custom JWT tokens for authentication/authorization. The SQL Server RDBMS should be used, and the application will use self-issued JWT tokens for authentication/authorization. Swagger is used for application documentation.
 
-## Setup
+## Architecture and Pattern
+
+### N-Layered Architecture
+
+N-Layered architecture is a software design pattern that organizes code into multiple layers, each responsible for a specific aspect of the application's functionality. The layers that we use are API, Contracts, DataContext, Repositories, and Services. This architecture promotes modularity, maintainability, and separation of concerns by enforcing strict boundaries between different layers. Each layer communicates with adjacent layers through well-defined interfaces, allowing for easier testing, scalability, and code reuse.
+
+### Unit of Work Pattern
+
+The Unit of Work pattern is a design pattern used to manage transactions and database operations in a modular and consistent manner. It encapsulates multiple database operations into a single unit of work, ensuring that all operations either succeed or fail together. This pattern is commonly used in conjunction with the Repository pattern, where the Unit of Work coordinates transactions across multiple repositories. By abstracting away the details of transaction management, the Unit of Work pattern simplifies code, enhances maintainability, and improves the overall integrity of database operations.
+
+## Docker Setup
+
+Prerequesite: Docker installed on your system. You can download and install Docker Desktop from [here](https://www.docker.com/products/docker-desktop/).
+
+```bash
+git clone https://github.com/IT-Labs/GatherApp-.NET.git
+```
+
+Setup your [appsettings.Development.json](#setup-locally)
+
+```bash
+cd GatherApp-.NET
+```
+
+Make changes to docker-compose.yml file if needed
+
+```bash
+docker-compose build
+```
+
+To run the application
+
+```bash
+docker-compose up
+```
+
+and navigate to **localhost:8080/swagger** or to stop the application
+
+```bash
+docker-compose down
+```
+
+## Setup Locally
 
 - Install PostgreSQL server locally
 - Clone Repository from Git
