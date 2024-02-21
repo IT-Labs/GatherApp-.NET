@@ -2,6 +2,7 @@ global using GatherApp.Services.Impl;
 using GatherApp.API;
 using GatherApp.API.Filters;
 using GatherApp.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,18 @@ builder.SetupCorsPolicy();
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        services.GetService<GatherAppContext>()!.Database.Migrate();
+    }
+}
+
 // Seed Data
 using (var scope = app.Services.CreateScope())
 {
@@ -34,12 +47,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseMiddleware<GatherApp.API.Middleware.AuthenticationMiddleware>();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseExceptionHandler();
 
