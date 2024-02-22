@@ -4,21 +4,45 @@
 
 1.  [Introduction](#introduction)
 
-2.  [Technologies](#technologies)
+2.  [Features](#features)
 
-3.  [Architecture and Pattern](#architecture-and-pattern)
+3.  [Technologies](#technologies)
 
-4.  [Docker Setup](#docker-setup)
+4.  [Architecture and Pattern](#architecture-and-pattern)
 
-5.  [Setup Locally](#setup-locally)
+5.  [Docker Setup](#docker-setup)
 
-6.  [How to Contribute to the Project](#how-to-contribute-to-the-project)
+6.  [Setup Locally](#setup-locally)
+
+7.  [How to Contribute to the Project](#how-to-contribute-to-the-project)
 
 ---
+
+**IMPORTANT: Credit where credit is due. This app is the end product of the amazing work put in by the participants in our latest Internship program – showing off their amazing technical skills, but also ability to truly cooperate and collaborate!**
 
 ## Introduction
 
 This application is the back-end part of GatherApp project that enables employees to create a variety of events, differing in theme, location, type, and guest list both on behalf of the company and the employee as an individual. The front-end part of this project can be found on this link **[here](https://github.com/IT-Labs/GatherApp-UI)**.
+
+## Features
+
+User and Admin:
+
+- **Authentication Options**: Support for custom login or Microsoft Single Sign-On (SSO).
+- **Attend Public or Invited Events**: Users can attend public events or those they've been personally invited to.
+- **Integrated Calendar**: Users have access to a built-in calendar within the application for managing their events.
+- **Outlook Calendar Integration**: Events can seamlessly sync with Outlook calendars. If not logged in, users are prompted to authenticate before adding events to Outlook.
+
+User Role:
+
+- **Create Events**: Users can create individual events which require approval, unless scheduled on weekends.
+
+Admin Role:
+
+- **Create Events**: Admins can create individual or company events which are automatically approved.
+- **Event Approval**: Admins have the authority to approve or decline event requests from users.
+
+For more detailed informations, check our user guide [here](https://github.com/IT-Labs/GatherApp-.NET/blob/main/GatherApp-Userguide.pdf).
 
 ## Technologies
 
